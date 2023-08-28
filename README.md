@@ -7,6 +7,5 @@ In deze Readme geven we kort enkele voorbeelden van de 1D cellulaire automata ui
 Een afbeelding van https://mathworld.wolfram.com/Rule30.html ter illustratie:
 
 ![Een illustratie van het cellulair automaton voor regel 30, van https://mathworld.wolfram.com/Rule30.html](../img/rule30.png)
-
-
+{: .rule30}
 
