@@ -28,4 +28,17 @@ Hiermee wordt hopelijk ook duidelijk wat de andere zeven gevallen voorstellen. Z
 
 Je ziet precies deze patronen ook terug in de driehoek in het grid. Onthoud dat elke rij die je naar beneden gaat, je één tijdstap vooruit gaat.
 
+Nu kunnen we eindelijk ook verklaren waarom dit Rule 30 is. Het getal 30 is in essentie een samenvatting van de regel. Als je de acht mogelijke gevallen naast elkaar zet, in de volgorde zoals hierboven, en noteert of de cel de volgende tijdstap levend of dood is, krijg je een binair getal (hier: 00011110) - wat staat voor 30.
+
+Er zijn dan ook 256 mogelijke regels op te stellen. Echter, maar weinig regels leiden tot interessante patronen zoals je hierboven ziet. (Beeld je bijvoorbeeld in: hoe ziet de afbeelding voor Rule 0 eruit? Of Rule 255?)
+
+Van veel van de regels die interessante patronen genereren is ook een pagina of Wolfram MathWorld te vinden. Kijk bijvoorbeeld ook eens op onderstaande links:
+
+https://mathworld.wolfram.com/Rule28.html
+https://mathworld.wolfram.com/Rule102.html
+https://mathworld.wolfram.com/Rule126.html
+https://mathworld.wolfram.com/Rule150.html
+
+Hopelijk is nu helder wat je te zien krijgt als je het practicum helemaal juist invult. Heel veel succes met programmeren!
+
 \*Als je eerste reflex was om mij te laten weten dat de formele term "Tetromino" is: wees gegroet, medenerd!
