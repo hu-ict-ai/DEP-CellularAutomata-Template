@@ -35,8 +35,11 @@ Er zijn dan ook 256 mogelijke regels op te stellen. Echter, maar weinig regels l
 Van veel van de regels die interessante patronen genereren is ook een pagina of Wolfram MathWorld te vinden. Kijk bijvoorbeeld ook eens op onderstaande links:
 
 https://mathworld.wolfram.com/Rule28.html
+
 https://mathworld.wolfram.com/Rule102.html
+
 https://mathworld.wolfram.com/Rule126.html
+
 https://mathworld.wolfram.com/Rule150.html
 
 Hopelijk is nu helder wat je te zien krijgt als je het practicum helemaal juist invult. Heel veel succes met programmeren!
