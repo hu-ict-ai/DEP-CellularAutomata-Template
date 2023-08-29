@@ -105,6 +105,9 @@ tFLAut2 = FocusList [Alive] []
 tFLAut3 :: Automaton
 tFLAut3 = FocusList [] []
 
+tFLAut4 :: Automaton
+tFLAut4 = FocusList [Alive, Dead] [Alive]
+
 -- rLIF, "really Long Inputs Function", is een implementatie van inputs om mee te testen,
 -- maar omdat je pluspunten kunt verdienen met een mooie implementatie, is die hier zo lang (en lelijk!) mogelijk.
 rLIF :: [Context]
@@ -119,7 +122,8 @@ quickBin x = foldl1 (+) $ zipWith (*) [128,64,32,16,8,4,2,1] $ map ((\y -> if y 
 ftst :: IO ()
 ftst = do multiTest "toList" [((toList intVoorbeeld), [0,1,2,3,4,5], "intVoorbeeld"), 
                      ((toList tFLInt1), [1,3,5,7,9], "$ FocusList [1,3,5,7,9] []"),
-                     ((toList tFLInt2), [2,3,5,7,11,13], "$ FocusList [13] [11,7,5,3,2]")]
+                     ((toList tFLInt2), [2,3,5,7,11,13], "$ FocusList [13] [11,7,5,3,2]"),
+                     ((toList tFLInt3), [3,1,4,1,5,9,2], "$ FocusList [1,5,9,2] [4,1,3]")]
           multiTest "fromList" [((fromList tLInt1), FocusList [0,1,2,3,4,5] [], "[0,1,2,3,4,5]"),
                      ((fromList tLInt2), FocusList [1,3,5,7,9] [], "[1,3,5,7,9]"),
                      ((fromList tLInt3), FocusList [2,3,5,7,11,13] [], "[2,3,5,7,11,13]")]
@@ -144,17 +148,19 @@ ftst = do multiTest "toList" [((toList intVoorbeeld), [0,1,2,3,4,5], "intVoorbee
           multiTest "zipFocusListWith" [((zipFocusListWith (*) intVoorbeeld tFLInt3), FocusList [3,20,45] [8,1,0], "(*) intVoorbeeld $ FocusList [1,5,9,2] [4,1,3]"),
                      ((zipFocusListWith (-) tFLInt2 tFLInt3), FocusList [12] [7,6,2], "(-) (FocusList [13] [11,7,5,3,2]) $ FocusList [1,5,9,2] [4,1,3]"),
                      ((zipFocusListWith (+) tFLNone intVoorbeeld), FocusList [] [], "(+) (FocusList [] []) intVoorbeeld")]
-          multiTest "foldFocusList" [((foldFocusList (+) intVoorbeeld), 15, "(+) intVoorbeeld"),
+          multiTest "{- deel 1, voor getallen -} foldFocusList" [((foldFocusList (+) intVoorbeeld), 15, "(+) intVoorbeeld"), 
                      ((foldFocusList (-) intVoorbeeld), 7, "(-) intVoorbeeld"),
                      ((foldFocusList (*) tFLInt1), 945, "(*) $ FocusList [1,3,5,7,9] []")]
+          multiTest "{- deel 2, voor strings -} foldFocusList" [((foldFocusList (++) stringVoorbeeld), "012345", "(++) stringVoorbeeld")]
           multiTest "safeHead" [((safeHead 0 tLInt3), 2, "0 [2,3,5,7,11,13]"),
                      ((safeHead 1 []), 1, "1 []")]
           multiTest "takeAtLeast" [((takeAtLeast 3 0 tLInt3), [2,3,5], "3 0 [2,3,5,7,11,13]"),
                      ((takeAtLeast 4 1 [2,3]), [2,3,1,1], "4 1 [2,3]"),
                      ((takeAtLeast 5 2 []), [2,2,2,2,2], "5 2 []")]
-          multiTest "context" [((context tFLAut1), [Alive, Alive, Alive], "$ FocusList [Alive, Alive] [Alive]"), 
+          multiTest "context" [((context tFLAut1), [Alive, Alive, Alive], "$ FocusList [Alive, Alive] [Alive]"),
                      ((context tFLAut2), [Dead, Alive, Dead], "$ FocusList [Alive] []"),
-                     ((context tFLAut3), [Dead, Dead, Dead], "$ FocusList [] []")]
+                     ((context tFLAut3), [Dead, Dead, Dead], "$ FocusList [] []"),
+                     ((context tFLAut4), [Alive, Alive, Dead], "$ FocusList [Alive, Dead] [Alive]")]
           multiTest "expand" [((expand tFLAut1), FocusList [Alive, Alive, Dead] [Alive, Dead], "$ FocusList [Alive, Alive] [Alive]"), -- 05 expand
                      ((expand tFLAut2), FocusList [Alive, Dead] [Dead], "$ FocusList [Alive] []"),
                      ((expand tFLAut3), FocusList [Dead] [Dead], "$ FocusList [] []")]

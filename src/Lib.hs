@@ -152,15 +152,18 @@ zipFocusListWith = undefined
 
 -- Je kunt, buiten de testsuite, `testFold` uitvoeren in "stack ghci" om je functie te testen.
 -- Let op: de tweede lijst van de FocusList kan leeg zijn! (De eerste technisch gezien ook, maar dan heb je geen geldige FocusList.)
+-- Let op: de testcode van deze functie is opgesplitst in twee delen! Beide delen moeten slagen als de functie klopt!
 
 foldFocusList :: (a -> a -> a) -> FocusList a -> a
 foldFocusList = undefined
 
--- Testfunctie voor foldFocusList (geeft True als alles klopt, False als er één of meer niet kloppen)
+-- Mocht je foldFocusList handmatig willen testen, dan kun je testFold opvragen via GHCi.
+-- Deze geeft True als alles klopt, en False zo niet. Uiteraard kun je ook handmatig onderdelen hier uit halen.
 testFold :: Bool
-testFold = and [ foldFocusList (+) intVoorbeeld     == 15
-               , foldFocusList (-) intVoorbeeld     == 7
-               , foldFocusList (++) stringVoorbeeld == "012345"
+testFold = and [ foldFocusList (+) intVoorbeeld               == 15
+               , foldFocusList (-) intVoorbeeld               == 7
+               , foldFocusList (*) (FocusList [1,3,5,7,9] []) == 945
+               , foldFocusList (++) stringVoorbeeld           == "012345"
                ]
 
 
