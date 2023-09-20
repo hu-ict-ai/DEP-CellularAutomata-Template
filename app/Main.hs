@@ -163,7 +163,8 @@ ftst = do multiTest "toList" [((toList intVoorbeeld), [0,1,2,3,4,5], "intVoorbee
                      ((context tFLAut4), [Alive, Alive, Dead], "$ FocusList [Alive, Dead] [Alive]")]
           multiTest "expand" [((expand tFLAut1), FocusList [Alive, Alive, Dead] [Alive, Dead], "$ FocusList [Alive, Alive] [Alive]"), -- 05 expand
                      ((expand tFLAut2), FocusList [Alive, Dead] [Dead], "$ FocusList [Alive] []"),
-                     ((expand tFLAut3), FocusList [Dead] [Dead], "$ FocusList [] []")]
+                     ((expand tFLAut3), FocusList [Dead] [Dead], "$ FocusList [] []"),
+                     ((expand tFLAut4), FocusList [Alive, Dead, Dead] [Alive, Dead], "$ FocusList [] []")]
           multiTest "rule30" [(quickBin rule30, 30, "omzetten naar een integer")]
           multiTest "inputs" [((and (map (\x -> elem x inputs) rLIF) && and (map (\x -> elem x rLIF) inputs)), True, "- een check of alle nodige waarden in inputs zitten")]
           multiTest "mask" [((Lib.mask [True, False, True, True, False] tLInt2), [1,5,7], "[True, False, True, True, False] [1,3,5,7,9]"),
