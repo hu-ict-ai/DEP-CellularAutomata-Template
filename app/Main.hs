@@ -167,6 +167,7 @@ ftst = do multiTest "toList" [((toList intVoorbeeld), [0,1,2,3,4,5], "intVoorbee
                      ((expand tFLAut4), FocusList [Alive, Dead, Dead] [Alive, Dead], "$ FocusList [Alive, Dead] [Alive]")]
           multiTest "rule30" [(quickBin rule30, 30, "omzetten naar een integer")]
           multiTest "inputs" [((and (map (\x -> elem x inputs) rLIF) && and (map (\x -> elem x rLIF) inputs)), True, "- een check of alle nodige waarden in inputs zitten")]
+          multiTest "volgorde inputs (OPTIONEEL) werkt nog niet... " [(inputs, rLIF, "Door de inputs op de zelfde volgorde terug te geven als op de Wolfram pagina maak je het jezelf bij \"rule\" een stuk makkelijker. Je functie werkt maar de optionele test")]
           multiTest "mask" [((Lib.mask [True, False, True, True, False] tLInt2), [1,5,7], "[True, False, True, True, False] [1,3,5,7,9]"),
                      ((Lib.mask [True, True] tLInt1), [0,1], "[True, True] [0,1,2,3,4,5]"),
                      ((Lib.mask [True, False, True, True, False] []), [], "[True, False, True, True, False] []")]
