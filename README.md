@@ -1,12 +1,14 @@
 # Cellulaire Automata
 
-In dit practicum gaan we aan de slag met (1D) cellulaire automata. Cellulaire automata zijn systemen waarbij een raster van cellen met elk een toestand in discrete stappen wordt geupdatet. Hierbij wordt de toestand van een cell bepaald aan de hand van de toestand in de vorige stap van de gegeven cell en diens buren. We gaan in dit practicum kijken naar de 1D variant, waarbij alle cellen op een enkele lijn liggen. Doordat we meerdere tijdstappen onder elkaar printen ontstaat een 2D-figuur, waarbij de verticale as de tijd representeert.
+**Voor dit practicum is het wederom de bedoeling om bestaande code aan te vullen en te documenteren. Vergeet niet hierbij gebruik te maken van de [Haddock-stijl](HADDOCK.md)!**
+
+In deze opdracht gaan we aan de slag met een groter project: een generator voor (1D) cellulaire automata. Cellulaire automata zijn systemen waarbij een raster van cellen met elk een toestand in discrete stappen wordt geupdatet. Hierbij wordt de toestand van een cell bepaald aan de hand van de toestand in de vorige stap van de gegeven cell en diens buren. We gaan in dit practicum kijken naar de 1D variant, waarbij alle cellen op een enkele lijn liggen. Doordat we meerdere tijdstappen onder elkaar printen ontstaat een 2D-figuur, waarbij de verticale as de tijd representeert.
 
 In deze Readme geven we kort enkele voorbeelden van de 1D cellulaire automata uit dit practicum. Dit is ter aanvulling op, niet ter vervanging van, het college. Tevens wordt het sterk aangeraden om de pagina's van Wolfram MathWorld er op na te slaan voor diepgaandere uitleg.
 
 Een afbeelding van https://mathworld.wolfram.com/Rule30.html ter illustratie:
 
-![Een illustratie van het cellulair automaton voor regel 30, van https://mathworld.wolfram.com/Rule30.html](../img/rule30.png)
+![Een illustratie van het cellulair automaton voor regel 30, van https://mathworld.wolfram.com/Rule30.html](img/rule30.png)
 
 We werken in dit practicum met 1D cellulaire automata. Dat wil zeggen dat er eigenlijk maar één as is waarop de cellen staan, oftewel een lijn van vakjes. Echter, de automata veranderen die lijn van vakjes met elke tijdstap. Als we meerdere tijdstappen zetten, en de lijnen van vakjes onder elkaar zetten, krijgen we een 2D grid van vakjes. Zo ontstaat ook de driehoek die je hierboven ziet.
 
@@ -16,7 +18,7 @@ Bij elke tijdstap passen we de regel van het automaton toe om te zien welke cell
 
 We zoomen nu in op het meest linkse geval ter uitleg:
 
-![Een fragment van de vorige illustratie, die de regel demonstreert voor drie levende voorgangers, van https://mathworld.wolfram.com/Rule30.html](../img/rule30allalive.png)
+![Een fragment van de vorige illustratie, die de regel demonstreert voor drie levende voorgangers, van https://mathworld.wolfram.com/Rule30.html](img/rule30allalive.png)
 
 Dit "Tetrisblokje"\* illustreert één van de acht mogelijke combinaties van levende en dode cellen. De bovenste drie vakjes vertegenwoordigen één cel en diens buren bij tijdstip *t*, het onderste vakje vertegenwoordigt die ene cel op tijdstip *t + 1*. Deze afbeelding betekent, in andere woorden:
 
